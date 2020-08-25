@@ -22,6 +22,23 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html", page_title="Shop Online")
 
+
+@app.route('/about')
+def about():
+    return render_template("about-us.html", page_title="Shop Online")
+
+
+@app.route('/contact')
+def contact():
+    return render_template("contact-us.html", page_title="Shop Online")
+
+
+@app.route('/userprofile')
+def userprofile():
+    return render_template("user-profile.html", page_title="Shop Online")
+
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
