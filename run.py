@@ -12,8 +12,8 @@ app.secret_key = "randomstring123"
 messages = []
 
 
-app.config["MONGO_DBNAME"] = 'task_manager'
-app.config["MONGO_URI"] = 'mongodb+srv://root:RootUser@myfirstcluster.zhfps.mongodb.net/task_manager?retryWrites=true&w=majority'
+app.config["MONGO_DBNAME"] = 'sample_airbnb'
+app.config["MONGO_URI"] = 'mongodb+srv://root:RootUser@myfirstcluster.zhfps.mongodb.net/sample_airbnb?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
 
@@ -35,12 +35,20 @@ def contact():
 
 @app.route('/login')
 def login():
+    listingsAndReviews = mongo.db.listingsAndReviews.find()
+    print(listingsAndReviews)
     return render_template("login.html", page_title="Shop Online")
 
 
 @app.route('/register')
 def register():
     return render_template("register.html", page_title="register")
+
+
+@app.route('/get_property_type')
+def get_property_type():
+    return render_template('get_property_type.html',
+                           get_property_type=mongo.db.property_type.find())
 
 
 @app.route('/addlisting')
