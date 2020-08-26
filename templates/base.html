@@ -51,7 +51,7 @@
 			<div class="col-md-12">
              {% if not logged_in  %}
 				<nav class="navbar navbar-expand-lg navbar-light navigation">
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" href="{{ url_for('index') }}">
 						<img src="images/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -61,7 +61,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
-								<a class="nav-link" href="index.html">Home</a>
+								<a class="nav-link" href="{{ url_for('index') }}">Home</a>
 							</li>
 						
 							<li class="nav-item dropdown dropdown-slide">
@@ -81,17 +81,17 @@
 								</a>
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="category.html">Ad-Gird View</a>
-									<a class="dropdown-item" href="ad-listing-list.html">Ad-List View</a>
+									<a class="dropdown-item" href="{{url_for('viewlisting')}}">Ad-Gird View</a>
+									<a class="dropdown-item" href="{{url_for('addlisting')}}">Ad-Listing</a>
 								</div>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link login-button" href="login.html">Login</a>
+								<a class="nav-link login-button" href="{{url_for('login')}}">Login</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
+								<a class="nav-link text-white add-button" href="{{url_for('addlisting')}}"><i class="fa fa-plus-circle"></i> Add Listing</a>
 							</li>
 						</ul>
 					</div>
@@ -99,7 +99,7 @@
                  {% else %}
                 <nav class="navbar navbar-expand-lg navbar-light navigation">
 					<a class="navbar-brand" href="index.html">
-						<img src="images/logo.png" alt="">
+						<img src="static/images/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,10 +108,10 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
-								<a class="nav-link" href="index.html">Home</a>
+								<a class="nav-link" href="{{ url_for('index') }}">Home</a>
 							</li>
                             <li class="nav-item active">
-								<a class="nav-link" href="index.html">{{user.name}</a>
+								<a class="nav-link" href="{{ url_for('index') }}">{{ user.name }}</a>
 							</li>
 						
 							<li class="nav-item dropdown dropdown-slide">
@@ -131,17 +131,17 @@
 								</a>
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="category.html">Ad-Gird View</a>
-									<a class="dropdown-item" href="ad-listing-list.html">Ad-List View</a>
+									<a class="dropdown-item" href="{{url_for('viewlisting')}}">Ad-Gird View</a>
+									<a class="dropdown-item" href="{{url_for('addlisting')}}">Ad-Listing</a>
 								</div>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link login-button" href="login.html">Login</a>
+								<a class="nav-link login-button" href="{{url_for('login')}}">Login</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
+								<a class="nav-link text-white add-button" href="{{url_for('addlisting')}}"><i class="fa fa-plus-circle"></i> Add Listing</a>
 							</li>
 						</ul>
 					</div>
@@ -153,108 +153,6 @@
     {% endif %}
 {% block content %}  
 {% endblock %}
-<!--===============================
-=            Hero Area            =
-================================-->
-
-<section class="hero-area bg-1 text-center overly">
-	<!-- Container Start -->
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<!-- Header Contetnt -->
-				<div class="content-block">
-					<h1>Book a Cottage Near Your favorite holiday spot </h1>
-					<p>Join the millions who choose their AirAnB deals from our portal <br> everyday around the world</p>
-					<div class="short-popular-category-list text-center">
-						<h2>Popular Category</h2>
-						<ul class="list-inline">
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-bed"></i> Hotel</a></li>
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-grav"></i> Fitness</a>
-							</li>
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-car"></i> Cars</a>
-							</li>
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-cutlery"></i> Restaurants</a>
-							</li>
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-coffee"></i> Cafe</a>
-							</li>
-						</ul>
-					</div>
-					
-				</div>
-				<!-- Advance Search -->
-				<div class="advance-search">
-						<div class="container">
-							<div class="row justify-content-center">
-								<div class="col-lg-12 col-md-12 align-content-center">
-										<form>
-											<div class="form-row">
-                                                <div class="form-group col-md-3">
-													<select class="w-100 form-control mt-lg-1 mt-md-2">
-														<option>Country</option>
-														<option value="1">Canada</option>
-														<option value="2">UK</option>
-														<option value="4">USA</option>
-													</select>
-												</div>
-												<div class="form-group col-md-3">
-													<select class="w-100 form-control mt-lg-1 mt-md-2">
-														<option>property type</option>
-														<option value="1">House</option>
-														<option value="2">Apartment</option>
-														<option value="4">Condominium</option>
-													</select>
-												</div>
-												<div class="form-group col-md-3">
-													<input type="text" class="form-control my-2 my-lg-1" id="inputLocation4" placeholder="Location">
-												</div>
-												<div class="form-group col-md-2 align-self-center">
-													<button type="submit" class="btn btn-primary">Search Now</button>
-												</div>
-											</div>
-										</form>
-									</div>
-								</div>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-	</div>
-	<!-- Container End -->
-</section>
-
-
-<!--====================================
-=            Call to Action            =
-=====================================-->
-<br>
-<br>
-<br>
-<section class="call-to-action overly bg-3 section-sm">
-	<!-- Container Start -->
-	<div class="container">
-		<div class="row justify-content-md-center text-center">
-			<div class="col-md-8">
-				<div class="content-holder">
-					<h2>Start today to get more exposure and
-					grow your business</h2>
-					<ul class="list-inline mt-30">
-						<li class="list-inline-item"><a class="btn btn-main" href="ad-listing.html">Add Listing</a></li>
-						<li class="list-inline-item"><a class="btn btn-secondary" href="category.html">Browser Listing</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Container End -->
-</section>
-
 <!--============================
 =            Footer            =
 =============================-->

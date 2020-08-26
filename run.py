@@ -33,6 +33,26 @@ def contact():
     return render_template("contact-us.html", page_title="Shop Online")
 
 
+@app.route('/login')
+def login():
+    return render_template("login.html", page_title="Shop Online")
+
+
+@app.route('/register')
+def register():
+    return render_template("register.html", page_title="register")
+
+
+@app.route('/addlisting')
+def addlisting():
+    return render_template("ad-listing.html", page_title="Add Listing")
+
+
+@app.route('/viewlisting')
+def viewlisting():
+    return render_template("ad-listing.html", page_title="View Listing")
+
+
 @app.route('/userprofile')
 def userprofile():
     return render_template("user-profile.html", page_title="Shop Online")
