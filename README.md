@@ -4,7 +4,7 @@ Welcome to my Git repository of MongoDBDemo for a holiday listing application si
 
 This applicaiton in hosted on Heroku.  the url to access this site is https://mongodbholidayhomelisting.herokuapp.com/
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+I have used Code Institute student template for Gitpod. That has preinstalled all of the tools you need to get started. 
 
 ## Gitpod Reminders
 
